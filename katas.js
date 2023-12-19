@@ -3,22 +3,22 @@
 //const between = (a, b) =>
  // [...Array(b - a + 0)].map((_, idx) => idx + a);
 
- const startTime = performance.now();
- const numbers = [6,6,3,4,0,1];
- let endTime;
+ //const startTime = performance.now();
+ //const numbers = [6,6,3,4,0,1];
+ //let endTime;
  
  
- for (const num of numbers) {
-     endTime = performance.now();
-     console.log(num);
-     console.log(totalTime);
-     const totalTime = startTime - endTime;
-     console.log(typeof totalTime);
-     const date = new Date(totalTime * 9999)
-     const time = date.toLocalTimeString();
-     console.log(time);
+ //for (const num of numbers) {
+     //endTime = performance.now();
+     //console.log(num);
+     //console.log(totalTime);
+     //const totalTime = startTime - endTime;
+     //console.log(typeof totalTime);
+     //const date = new Date(totalTime * 9999)
+     //const time = date.toLocalTimeString();
+     //console.log(time);
      
- }
+ //}
  
  
  var uniqueInOrder=function(iterable){
@@ -202,6 +202,100 @@ function countPositivesSumNegatives(input) {
     console.log(res);
     return res;
   }
-  
-  
 }
+
+function calculateYears(principal, interest, tax, desired) {
+    let years = 0;
+    while(principal<desired) {
+      yearly_interest = principal*interest
+      yearly_tax = yearly_interest*tax;
+      principal += (yearly_interest-yearly_tax);
+      years++
+    }
+     return years;
+}
+
+function nbYear(p0, percent, aug, p) {
+    let years = 0;
+    percent = percent / 100;
+    
+    while (p0 < p) {
+       p0 = Math.floor(p0 + p0 * percent + aug);
+       years++;
+    }
+    return years;
+}
+
+function alphabetWarII(fight)
+{
+   let leftSide = {
+     w: 4,
+     p: 3,
+     b: 2,
+     s: 1
+   }
+   
+   let rightSide = {
+     m: 4,
+     q: 3,
+     d: 2,
+     z: 1
+   }
+   
+   let weightLeft = 0;
+   let weightRight = 0;
+  
+   const len = fight.length;
+  
+   for(i=0; i<len; ++i) {
+      if(fight[i] in leftSide) {}
+   }
+   
+}
+
+function alphabetWar(fight) {   
+    const len = fight.length;
+    let weightLeft =0;
+    let weightRight =0;
+
+    for(i=0; i<len; ++i) {
+        
+        if(fight[i]=='w') {
+            weightLeft+=4
+        }
+        if(fight[i]=='m') {
+            weightRight+=4
+        }
+        if(fight[i]=='p') {
+            weightLeft+=3
+         }
+        if(fight[i]=='q') {
+            weightRight+=3
+        }
+        if(fight[i]=='b') {
+            weightLeft+=2
+        }
+        if(fight[i]=='d') {
+            weightRight+=2
+        }
+        if(fight[i]=='s') {
+            weightLeft+=1
+        }
+        if(fight[i]=='z') {
+            weightRight+=1
+        }
+    }
+        return weightLeft>weightRight ? "Left side wins!" :
+            weightRight >weightLeft ? "Right side wins!" :
+            "Let's fight again!"
+}
+
+function noOdds( values ){
+    return values.filter(val=> val%2==0);
+}
+
+function noOddsII(values) {
+    
+}
+
+noOdds([0,9,78,0,8,20,9,92,1,3,4]);

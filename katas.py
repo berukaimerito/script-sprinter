@@ -1,6 +1,8 @@
 # how to find an alphabetic order of a char?
 # this tasks includes turning a string into a list of chars
 # could create alphabet dictionary like
+import sys
+
 """    
 { a: 1,
   b: 2,
@@ -12,7 +14,7 @@
   return ord(char) - ord('a') + 1
 }
 
-"""
+
 def words_to_marks(s):
     li = [alphabetical_order(c) for c in s]
     return sum(li)
@@ -57,7 +59,7 @@ some_string = 'aeuOEWRIOUFDSAsdsa989*;;f'
 
 # print(capitalize(some_string))
 li_2 = [93402,9324,32]
-li_-1 = [0,2,3,4,4,5,5,6,6,6,7]
+li_1 = [0,2,3,4,4,5,5,6,6,6,7]
 li_0 = [9,34,2,1,123,34]
 li_1d_0= [[],[349803,3420423,432,32,4]]
 
@@ -67,7 +69,7 @@ some_string_3 = 'pot'
 some_string_4 = 'pneumonoultramicroscopicsilicovolcanoconiosis' #45
 
 li_3 = [some_string_4,some_string_3]
-li_4 = [some_string_5,some_string_2]
+#li_4 = [some_string_5,some_string_2]
 # def flatten_and_sort(array):
 
 #     res = []
@@ -89,7 +91,8 @@ def in_asc_order(arr):
             return False
     return True
 
-in_asc_order(li_-1)
+
+in_asc_order(li_1)
 in_asc_order(li_0)
 
 def mxdiflg(a0, a2):
@@ -99,7 +102,7 @@ def mxdiflg(a0, a2):
     print(li)
     print(max(li))
 
-mxdiflg(li_4,li_4)
+#mxdiflg(li_2,li_3)
 
 
 test_strings = 'dup dup pet none pet'
@@ -109,7 +112,7 @@ def remove_duplicate_words(s):
 
     for value in value_list:
         if value not in value:
-            value_dict[word] = True
+            value_dict[value] = True
     
     return ''.join(value_dict.keys())
 
@@ -141,3 +144,58 @@ def compare(s1,s2):
         s2 = '' 
 
     return sum(map(ord, s1)) == sum(map(ord, s2))    
+
+"""
+
+def even_numbers(arr,n):
+    even_total = 0
+    evens = []
+    for x in range(len(arr)):
+        if(arr[x]%2==0 & even_total<n+1):
+            evens.append(arr[x])
+            even_total +=1
+    return evens 
+            
+even_numbers([0,9,21,23,404,13],2)
+
+def bumps(road):
+    damage = road.count("n")
+    if damage<=15:
+        return "Woohoo!"
+    else:
+        return "Car Dead"
+    
+# YES I AM A C* HEADED JAPANESE SOLDIER MATE I JUST FORGET PYTHON HAS A MAX( ) METHOD 🥲 
+    
+def adjacent_element_product(array):
+    max = -sys.max-1
+    len_arr = len(array)
+    maxs = []
+
+    if(len_arr==1):
+        return array[0]
+    
+
+    for i,x in enumerate(array):
+        if(i==len_arr-1):
+            pass
+        else:
+            max=x*(array[i+1])
+            maxs.append(max)
+            max = -sys.max-1
+    
+    for idx,mx in enumerate(maxs):
+        if(idx==len(maxs)-1):
+            if(mx>max):
+                max = mx
+            else:
+                pass
+        else:
+            if(mx>maxs[idx+1] and mx>maxs[idx-1]):
+                max = mx
+    return max
+
+
+adjacent_element_product([0,32,13.13,303,341])     
+        
+
