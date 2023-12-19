@@ -195,6 +195,19 @@ def adjacent_element_product(array):
                 max = mx
     return max
 
+def adjacent_element_productII(array):
+    products = []
+
+    for idx in range(len(array)-1):
+        products.append(array[idx]*array[idx+1])
+    
+    return max(products)
+
+def mul(a,b):
+    return a**b
+
+def adjacent_element_productIII(array):
+    return max(map(mul, zip(array, array[1:])))
 
 adjacent_element_product([0,32,13.13,303,341])     
         
