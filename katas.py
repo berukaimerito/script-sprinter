@@ -145,7 +145,6 @@ def compare(s1,s2):
 
     return sum(map(ord, s1)) == sum(map(ord, s2))    
 
-"""
 
 def even_numbers(arr,n):
     even_total = 0
@@ -202,6 +201,7 @@ def adjacent_element_productII(array):
         products.append(array[idx]*array[idx+1])
     
     return max(products)
+"""
 
 def mul(a,b):
     return a**b
@@ -209,6 +209,94 @@ def mul(a,b):
 def adjacent_element_productIII(array):
     return max(map(mul, zip(array, array[1:])))
 
-adjacent_element_product([0,32,13.13,303,341])     
+# adjacent_element_product([0,32,13.13,303,341])     
         
 
+def greet(name): 
+    lowercase_name = name.lower()
+    corrected_name = lowercase_name[0].upper()+lowercase_name[1:]
+    return f'Hello {corrected_name}!'
+
+greet("deli Ibrahim")
+
+def vowel_indices(word):
+    vowel_dict = {'a': True,'e': True,'i': True,'o': True,'u': True,}
+
+    res = []
+    for idx,c in enumerate(word.lower()):
+        if(vowel_dict.get(c,False)):
+            res.append(idx)
+    return res
+
+def vowel_indicesII(word):
+    vowels = set('aeiouy')
+    return [idx for idx,c in enumerate(word,start=1) if c in vowels]
+
+vowel_indices("AEIWPXXOQ")
+
+
+def find_length(x):
+    return len(str(x))
+
+def find_longest(arr):
+    length = 0
+    idx_digit = -1
+    
+    for idx,x in enumerate(arr):
+        if (len(str(x))>length):
+            length=len(str(x))
+            idx_digit = idx
+    
+    return idx_digit
+
+sum_cubes = lambda n: sum(x**3 for x in range(n+1))
+
+a_list =[0,-19,19,2323,1,23,2313123124,342423423,2,-1233123,-3213]
+a_list.sort(reverse=True)
+
+
+print(a_list)
+
+r0 = 934884
+
+def reverse_number(n):
+    
+    digit = str(n)
+    digits = []
+    res = ''
+    sign = ''
+    
+    for c in digit:
+        if c == '-':
+            sign = c
+        else:
+            digits.append(int(c))
+        
+    digits.reverse()
+    res+=sign
+
+    for x in digits:
+        res +=str(x)
+    
+    return int(res)
+
+reverse_number(43290894082)
+
+def solution(start, finish):  
+    
+    step = 0
+    while(start<finish):
+        if(start+3==finish or start+3 <= finish):
+            step+=1
+            start+=3
+        elif(start+1==finish):
+            step+=1
+        elif(start+3>finish):
+            step+=1
+            start+=1
+        else:
+            pass
+    return step
+
+solution(1,7)
+        
