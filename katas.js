@@ -72,8 +72,6 @@
  function isPalindrome(x) {
      const str = x.split('').reverse();
      const reverse = str.join('');
-     console.log(reverse);
-     console.log(str);
      if (x == reverse) {
          return true;
      }
@@ -299,3 +297,430 @@ function noOddsII(values) {
 }
 
 noOdds([0,9,78,0,8,20,9,92,1,3,4]);
+
+function sumTriangularNumbers(n) {
+
+    let base  = 0;
+    let result = 0;
+    let triangleNumbers  = [];
+
+    for(var i=0; i<n; ++i) {
+        base += i+1;
+        triangleNumbers.push(base);
+    }
+
+    for(var x=0; x<triangleNumbers.length; ++x){
+            result += triangleNumbers[x];        
+    }
+
+    return result;
+}
+
+function sumTriangularNumbersII(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    // Sum of the first n triangular numbers formula
+    // n(n + 1)(n + 2) / 6
+    return n * (n + 1) * (n + 2) / 6;
+}
+
+
+function generateShape(integer) {  
+  
+    const newLine = '\n'
+    const star = '*'
+    let block = `${star.repeat(integer)}`
+    block+=newLine
+
+    let result = `${block.repeat(integer)}`.slice(-1)
+    return result;
+}
+
+generateShape(4)
+sumTriangularNumbers(34);
+
+
+function partlist(arr) {
+    
+    let result = [];
+
+    for(let i =1; i<arr.length; ++i) {
+        let part1 = arr.slice(0,i).join(' ');
+        let part2 = arr.slice(i).join(' ');
+        result.push(part1,part2);
+    }
+    return result;
+}
+
+partlist(["az", "toto", "picaro", "zone", "kiwi"])
+
+
+function vertMirror(strng) {
+
+    let verticalCluster = strng.split('\n')
+    let cluster = ''
+    
+
+    for(let i=verticalCluster.length-1; i>=0; --i){
+    }   
+        return cluster;
+}
+
+function horMirror(strng) {
+    let horizontalClusters = strng.split('\n').reverse();
+    return horizontalClusters.join("\n");
+}
+
+function oper(fct, s) {
+
+    if(fct === horMirror) {
+        return  horMirror(s);
+    } else {
+        return vertMirror(s);
+    }
+    
+}   
+
+oper(vertMirror, "hSgdHQ\nHnDMao\nClNNxX\niRvxxH\nbqTVvA\nwvSyRu");
+
+
+function sortGiftCode(code) {
+  //TODO 
+    return  code.split('')
+                .sort()
+                .join('');
+}
+
+var list1 = [
+  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java' },
+  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python' },
+  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby' } 
+];
+
+console.log(list1.length)
+console.log(list1[0].language)
+
+function isRubyComing(list) {
+ 
+    const len = list.length;
+    let result = true;
+
+    for(let i =0; i<len; ++i) {
+        if(list[i].language=='Ruby') {
+            result = false;
+        } 
+    }
+    return result;
+}
+
+function isInArray(arr) {
+    return arr.some(el=> el==='exists');
+}
+
+function countRedBeads(n) {
+  
+
+}
+
+
+function greetDevelopers(list) {
+    list.forEach(dev =>  {
+         dev.greeting = `Hi ${dev.firstName}, what do you like the most about ${dev.language}?`;
+    });
+        return list;
+}
+
+
+const list_dev =
+
+[
+      {
+        firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
+      },
+
+      {
+        firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python',
+      },
+      
+      {
+        firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby',
+      },
+
+];
+
+function hasUniqueChars(str){
+    return new Set(str).size === str.length;
+}
+
+hasUniqueChars("--+")
+hasUniqueChars("AAaabb-scsfsdfdsfeQqwiow");
+hasUniqueChars("00231");
+hasUniqueChars("o0");
+greetDevelopers(list_dev);
+
+
+function solve(arr) {
+    const uniq = new Set(arr);
+    
+    for (let i=arr.length-1; i>=0; --i) {
+      const el = arr[i];
+
+      if(uniq.has(el)){
+        uniq.delete(el)
+      } else {
+        arr.splice(i,1)
+      }
+    }
+    return arr;
+
+}
+
+function solveII(arr){
+    return arr.filter((val,i) => arr.lastIndexOf(val) ==i);
+}
+
+function solveIII(arr){
+    console.log(...new Set(arr.reverse()));
+    return [...new Set(arr.reverse())].reverse();
+}
+
+solveII([3,4,4,3,6,3]);
+
+solveIII([3,4,4,3,6,3]);
+
+function isPalindrome(x) {
+
+     let num  =String(x);
+     const str = num.split('').reverse();
+     const reverse = str.join('');
+     if (num == reverse) {
+         return true;
+     }
+     else {
+         return false;
+     }
+}
+
+var palindromeChainLength = function(n) {
+
+  let step = 0;
+
+  if (n<10) {
+    return step;
+  }
+
+  while(!isPalindrome(n)) {
+    numStr  = String(n);
+    const reversedNumStr = numStr.split('').reverse().join('');
+    const reversedNum = parseInt(reversedNumStr,10);
+    n += reversedNum;
+    step+=1;
+  }
+
+  return step;
+};
+
+function overTheRoad(address, n) {
+    // Total houses on one side of the street is n
+    // Highest house number is 2 * n
+    // The sum of opposite houses is always 2 * n + 1
+    // So, to find the opposite house, subtract the address from 2 * n + 1
+    return 2 * n + 1 - address;
+}
+
+console.log(parseInt('3',10))
+
+var filterString = (value) => {
+  //Complete this function :)
+  let number = '';
+
+  for(let i=0; i<value.length; ++i) {
+     let curr = value[i];
+     if(curr.match(/\d/)) {
+        number+=curr;
+     }
+     //if(!isNaN(curr) != curr.trim() !=='') {
+     //   number+=curr;
+    // }
+  }
+  return parseInt(number);
+}
+
+function halvingSum(n) {
+
+    let x = 2;
+    let result = n;
+    
+    while(x<=n) {
+        let div = Math.floor(n/x);
+        result += div;
+        x = x*2;
+    }
+    return result;
+}
+
+halvingSum(25);
+
+
+function sortMyString(S) {
+    // your code here
+    let charArr = S.split('');
+    let evenStr = '';
+    let oddStr = '';
+
+    for(let i=0; i<charArr.length; ++i) {
+        if(i===0 || i%2===0) {
+            evenStr+=charArr[i];
+        } else {
+            oddStr+=charArr[i];
+        }
+    }
+
+    console.log(evenStr+' '+oddStr);
+}
+
+function sortMyStringII(S) {
+    const {even, oddStr} = [...S].reduce((acc, char, index) => {
+        if(index&2===0) acc.even +=char 
+        else acc.odd +=char;
+        return acc; 
+    }, { even: '', odd: ''});
+
+    return even +''+odd;
+}
+sortMyString('Codewars')
+
+const sortMyStringIII = s => {
+        let even = s.split('').filter((v,i)=> i%2===0).join('');
+        let odd = s.split('').filter((v,i)=> i2 !=0 ).join('');
+        return even + '' +odd;
+}
+
+var findDigit = function(num, nth){
+    
+    if(nth<=0) {return -1;}
+
+    let numStr = Math.abs(num).toString();
+    let digitArr = [...numStr].reverse();
+
+    if(nth>numStr.length) { return 0;} 
+    else {
+        x =digitArr[nth-1];
+        digit = parseInt(x,10);
+        return digit;
+    }
+}
+
+findDigit(-456,4);
+
+
+function getFirstPython(list) {
+    let name = '';
+    let origin ='';
+
+    for(let i=0; i<list.length; ++i) {
+        if(list[i].language === 'Python') {
+            name = list[i].firstName;
+            origin = list[i].country;
+            break;
+        }
+    }
+
+    if (origin!=='') {
+        return `${name}, ${country}`;
+    } else {
+        return `There will be no Python developers`;
+    }
+}
+
+function getFirstPythonII(list) {
+    const dev = list.find(x=>x.language ==='Python')
+    //console.log(dev);
+    return dev ? `${dev.firstName}, ${dev.country}` : "There will be no Python developers";
+}
+
+getFirstPythonII( [
+    { firstName: 'Nffof', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
+    { firstName: 'Maifds', lastName: 'S.', country: 'Tahiti', continent: 'Oceania', age: 28, language: 'JavaScript' },
+    { firstName: 'Shdfsn', lastName: 'L.', country: 'Taiwan', continent: 'Asia', age: 35, language: 'Pyuthons' },
+    { firstName: 'Sdhfsd', lastName: 'M.', country: 'Tajikistan', continent: 'Asia', age: 30, language: 'CSS' }
+  ]);
+function tidyNumber(n){
+
+    const tidy = n.toString().split('').sort().join('');
+    const tidyDigit = parseInt(tidy,10);
+    return n === tidyDigit ? true : false;
+}
+
+function tidyNumberII(n) {
+    return [...n += ''].sort().join('') ==n;
+}
+
+function inviteMoreWomen(L) {
+  const jizzin = L.reduce((acc,v) =>{acc+v, 0});
+  return jizzin > 0;
+}
+tidyNumber(2789)
+
+function countDevelopers(list) {
+  const dev = list.find(x=>x.language==="JavaScript");
+  return dev.length;
+}
+
+function reverseNumber(n) {
+  if(n===0) {return 0;}
+  let isNegative = n<0;
+  let positiveNum = isNegative ? n* -1 : n;
+  let reversedDigits = [...`${positiveNum}`].reverse().join('');
+  let reversedNum = parseInt(reversedDigits, 10);
+  return isNegative ? -reversedNum: reversedNum;
+}
+
+reverseNumber(1230000)
+
+function divideAndRoundUp(num1, num2) {
+    return Math.ceil(num1 / num2);
+}
+
+function digitArray(number) {
+    return [...`${number}`];
+}
+
+// TODO REDUCE AND CALCULATE
+let calculateSide = (arr) => {
+    return arr.reduce((acc,v)=> acc+(parseInt(v,10)), 0);
+}
+
+function balancedNum(number) {
+
+    let arr = digitArray(number); 
+    let len = arr.length; 
+    let evenLen = len % 2 === 0;
+
+    let idx = 0;
+
+    if(evenLen) {
+        idx = divideAndRoundUp(len, 2);
+        leftSide = arr.slice(0,idx-1)
+        rightSide = arr.slice(idx+1,len);
+        leftSum = calculateSide(leftSide);
+        rightSum = calculateSide(rightSide);
+        
+    } else {
+        idx = len / 2;
+        leftSide = arr.slice(0,idx);
+        rightSide = arr.slice(idx+1,len);
+        leftSum = calculateSide(leftSide);
+        rightSum = calculateSide(rightSide);
+    }
+
+    return leftSum === rightSum ? "Balanced" : "Not Balanced";
+}
+
+// TODO -- one time approach to calculate size
+function balancedNumII(num) {
+
+
+}
+balancedNum(77777);
