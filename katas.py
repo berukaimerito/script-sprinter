@@ -1,18 +1,4 @@
-# how to find an alphabetic order of a char?
-# this tasks includes turning a string into a list of chars
-# could create alphabet dictionary like
 import sys
-
-"""
-{ a: 1,
-  b: 2,
-  ...
-  z: 3
-  ord() method or
-  char_dict = {char: alphabetical_order(char) for char in string.ascii_lowercase}
-  def alphabetical_order(char):
-  return ord(char) - ord('a') + 1
-}
 
 
 def words_to_marks(s):
@@ -163,6 +149,7 @@ def bumps(road):
         return "Car Dead"
 
 # YES I AM A C* HEADED JAPANESE SOLDIER MATE I JUST FORGET PYTHON HAS A MAX( ) METHOD 🥲
+"""
 
 def adjacent_element_product(array):
     max = -sys.max-1
@@ -192,6 +179,8 @@ def adjacent_element_product(array):
                 max = mx
     return max
 
+"""
+
 def adjacent_element_productII(array):
     products = []
 
@@ -199,10 +188,9 @@ def adjacent_element_productII(array):
         products.append(array[idx]*array[idx+1])
 
     return max(products)
-"""
 
-
-def mul(a, b):
+""" "
+ def mul(a, b):
     return a**b
 
 
@@ -211,6 +199,7 @@ def adjacent_element_productIII(array):
 
 # adjacent_element_product([0,32,13.13,303,341])
 
+"""
 
 def greet(name):
     lowercase_name = name.lower()
@@ -262,7 +251,6 @@ a_list = [0, -19, 19, 2323, 1, 23, 2313123124, 342423423, 2, -1233123, -3213]
 a_list.sort(reverse=True)
 
 
-print(a_list)
 
 r0 = 934884
 
@@ -321,3 +309,22 @@ def pairs(arr):
     return pair_count
 
 pairs([2313123124, 342423423, 2323, 23, 19, 2, 1, 0, -19, -3213, -1233123])
+
+def add(n):
+    return lambda x: n + x
+
+add_one = add(1)
+
+print(add_one(2))
+
+def calc(x):
+    sum_total1 = 0
+    sum_total2 = 0
+
+    for char in x:
+        ascii_str = str(ord(char))
+        sum_total1 += sum(int(digit) for digit in ascii_str)
+        sum_total2 += sum(1 if digit == '7' else int(digit) for digit in ascii_str)
+    return abs(sum_total1 - sum_total2)
+
+calc('jfmgklf8hglbe')

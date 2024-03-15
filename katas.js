@@ -942,3 +942,19 @@ function explode(s) {
 }
 
 console.log(3, "3");
+
+function calc(x) {
+  charArr = x.split("");
+  let sum = 0;
+
+  for (let i = 0; i < charArr.length; ++i) {
+    let asciiStr = charArr[i].charCodeAt(0).toString();
+    let asciiStr2 = asciiStr.replaceAll("7", "1");
+    sum +=
+      parseInt(asciiStr[0], 10) +
+      parseInt(asciiStr[1], 10) -
+      (parseInt(asciiStr2[0], 10) + parseInt(asciiStr2[1], 10));
+  }
+  console.log(sum);
+}
+calc("ABC");
