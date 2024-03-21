@@ -328,3 +328,77 @@ def calc(x):
     return abs(sum_total1 - sum_total2)
 
 calc('jfmgklf8hglbe')
+
+get_sum_num = lambda num: sum(map(int, str(num)))
+
+random_list = [3232,9321,31,34,4,13,1]
+
+print(random_list[2:] + random_list[:2])
+print(random_list[:1])
+
+merge_digits = lambda x: ''.join(str(x))
+def max_rot(n):
+    digits = list(map(int, str(n)))
+    rotations = []
+    digits_len = len(digits)
+    idx = 0
+    for i in range(digits_len):
+        print("")
+
+
+
+def boredom(staff):
+    boredom_dict = {
+        "accounts": 1,
+        "finance": 2,
+        "canteen": 10,
+        "regulation": 3,
+        "trading": 6,
+        "change": 6,
+        "IS": 8,
+        "retail": 5,
+        "cleaning": 4,
+        "pissing about": 25,
+    }
+    total_boredom  = 0
+    for k,v in staff.items():
+        total_boredom += boredom_dict.get(v, 0)
+
+    if total_boredom <= 80:
+        return 'kill me now'
+    elif 80 < total_boredom <= 100:
+        return 'i can handle this'
+    elif total_boredom > 100:
+        return 'party time!!'
+
+"""
+Converting string to list and converting back to string can be less efficient than using
+string slicing or other string methods
+
+"""
+def capitalize(s, ind):
+        chars = list(s)
+        for i in range(len(ind)):
+            idx = ind[i]
+            char = s[idx].upper()
+            chars[idx] = char
+        return "".join(c for c in chars)
+
+capitalize("abcdef",[1,2,5])
+
+
+def calculate(num1, operation, num2):
+    operations = {
+        "+": lambda x, y: x + y,
+        "-": lambda x, y: x - y,
+        "*": lambda x, y: x * y,
+        "/": lambda x, y: x / y if y != 0 else None
+    }
+    if operation in operations:
+        return operations[operation](num1, num2)
+    else:
+        return None
+
+
+def array_leaders(numbers):
+        pass

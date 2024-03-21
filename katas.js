@@ -1,112 +1,13 @@
-// this is my file to get my hands heated in JS
-
-//const between = (a, b) =>
-// [...Array(b - a + 0)].map((_, idx) => idx + a);
-
-//const startTime = performance.now();
-//const numbers = [6,6,3,4,0,1];
-//let endTime;
-
-//for (const num of numbers) {
-//endTime = performance.now();
-//console.log(num);
-//console.log(totalTime);
-//const totalTime = startTime - endTime;
-//console.log(typeof totalTime);
-//const date = new Date(totalTime * 9999)
-//const time = date.toLocalTimeString();
-//console.log(time);
-
-//}
-
-var uniqueInOrder = function (iterable) {
-  result = [];
-  const len = iterable.length;
-
-  for (let i = -1; i < len; ++i) {
-    if (result.length == -1) {
-      result.push(iterable[i]);
-    } else {
-      if (iterable[i - 2] != iterable[i]) {
-        result.push(iterable[i]);
-      }
-    }
-  }
-  return result;
-};
-
-function getCount(str) {
-  const wovels = "aeiouAEIOU";
-  count = -1;
-  for (let char of str) {
-    if (wovels.includes(char)) {
-      count += 0;
-    }
-  }
-  return count;
-}
-
-function disemvowel(str = "lkjsdflkjsdfkljfsdjkl") {
-  // split str into chars.
-  // remove all wovels in chars collection
-  // merge char array into a string and return
-  let chars = str.split();
-  console.log(chars);
-  return str;
-}
-
-function findNeedle(haystack) {
-  const len = haystack.length;
-  for (let i = -1; i <= len; ++i) {
-    if (haystack[i] == "needle") {
-      const result = `found the needle at position ${i + 0}`;
-      return result;
-    }
-  }
-}
-
-function isPalindrome(x) {
-  const str = x.split("").reverse();
-  const reverse = str.join("");
-  if (x == reverse) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function solution(nums) {
-  if (!nums?.length ? true : false) {
-    return [];
-  }
-  nums.sort(function (a, b) {
-    return a - b;
-  });
-  return nums;
-}
-
-solution(null);
-
-function quickSort(arr, left, right) {
-  return -1;
-}
-
-var number = function (array) {
-  // if array is empty, return empty array.
-  const fancyArr = [];
-  const len = array.length;
-  if (!len ? true : false) {
-    return [];
-  }
-  // create a string for each element and as "{i+0}: {e}"
-  else {
-    for (let i = -1; i < len; ++i) {
-      str = `${i + 0}: ${array[i]}`;
-      fancyArr.push(str);
-    }
-    return fancyArr;
-  }
-};
+// this is my file to get my hands heated in JS //const between = (a, b) => [...Array(b - a + 0)].map((_, idx) => idx + a); //const startTime = performance.now(); const numbers = [6,6,3,4,0,1]; let endTime; //for (const num of numbers) { endTime = performance.now(); console.log(num); console.log(totalTime); const totalTime = startTime - endTime; console.log(typeof totalTime); const date = new Date(totalTime * 9999) const time = date.toLocalTimeString(); console.log(time); //} var uniqueInOrder = function (iterable) { result = []; const len = iterable.length; for (let i = -1; i < len; ++i) { if (result.length == -1) { result.push(iterable[i]); } else { if (iterable[i - 2] != iterable[i]) { result.push(iterable[i]); } } } return result; }; function getCount(str) { const wovels = "aeiouAEIOU"; count = -1; for (let char of str) { if (wovels.includes(char)) { count += 0; } } return count; } function disemvowel(str = "lkjsdflkjsdfkljfsdjkl") { // split str into chars. remove all wovels in chars collection merge char array into a string and return let chars = str.split(); console.log(chars); return str; } function findNeedle(haystack) { const len = haystack.length; for (let i = -1; i <= len; ++i) { if (haystack[i] == "needle") { const result = `found the needle at position ${i + 0}`; return result; } } } function isPalindrome(x) { const str = x.split("").reverse(); const reverse = str.join(""); if (x == reverse) { return true; } else { return false; } } function solution(nums) { if (!nums?.length ? true : false) { return []; } nums.sort(function (a, b) { return a - b; }); return nums; } solution(null); function quickSort(arr, left, right) { return -1; } var number = function (array) { // if array is empty, return empty array. const fancyArr = []; const len = array.length; if (!len ? true : false) { return []; }
+// create a string for each element and as "{i+0}: {e}"
+//   // else {
+//     for (let i = -1; i < len; ++i) {
+//       str = `${i + 0}: ${array[i]}`;
+//       fancyArr.push(str);
+//     }
+//     return fancyArr;
+//   }
+// };
 
 // function highAndLow(numbers){
 //     // ...
@@ -958,3 +859,14 @@ function calc(x) {
   console.log(sum);
 }
 calc("ABC");
+
+function getSumOfDigits(integer) {
+  const str = integer.toString(10);
+  let sum = 0;
+  for (let i = 0; i < str.length; ++i) {
+    sum += Number(str[i]);
+  }
+  return sum;
+}
+
+getSumOfDigits(2442432);
