@@ -399,6 +399,112 @@ def calculate(num1, operation, num2):
     else:
         return None
 
+array_test = [16, 17, 4, 3, 5, 2]
 
 def array_leaders(numbers):
-        pass
+    leaders = []
+    arr_len = len(numbers)
+    for i in range(1, arr_len):
+        value = numbers[i-1]
+        right_sum = sum(numbers[i:])
+        if(value > right_sum):
+            leaders.append(value)
+
+    if(numbers[-1] > 0):
+        leaders.append(numbers[-1])
+    return leaders
+
+
+string_list = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
+
+def contain_all_roots(strng, arr):
+    chars = list(strng)
+    len_arr = len(chars)
+    reversed = {
+
+    }
+
+    for i in range(len_arr):
+       print("")
+
+contain_all_roots("apple", string_list)
+
+
+def disarium_number(number):
+    digits = list(str(number))
+    len_digits = len(digits)
+    sum = 0
+    equal = lambda x, y: x == y
+
+    for idx in range(1, len_digits + 1):
+        sum += int(digits[idx-1]) ** idx
+
+    if equal(sum, number):
+        return "Disarium !!"
+    else:
+        return "Not !!"
+
+disarium_number(89)
+
+list1 = [
+    { 'firstName': 'Noah', 'lastName': 'M.', 'country': 'Switzerland', 'continent': 'Europe', 'age': 19, 'language': 'C' },
+    { 'firstName': 'Anna', 'lastName': 'R.', 'country': 'Liechtenstein', 'continent': 'Europe', 'age': 52, 'language': 'JavaScript' },
+    { 'firstName': 'Ramon', 'lastName': 'R.', 'country': 'Paraguay', 'continent': 'Americas', 'age': 29, 'language': 'Ruby' },
+    { 'firstName': 'George', 'lastName': 'B.', 'country': 'England', 'continent': 'Europe', 'age': 81, 'language': 'C' },
+    ]
+
+from collections import Counter
+def count_languages(lst):
+    languages = {}
+    langs = [dict.get('language') for dict in lst]
+    language_counts = Counter(langs) # efficient hashing , dynamic resizing
+
+    for lan in langs:
+        if languages.get(lan, 0) > 0:
+            languages[lan] += 1
+        else:
+            languages[lan] = 1
+    return language_counts
+
+count_languages(list1)
+
+def vowel_2_index(string):
+    r, l = ' ', len(string)
+    vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+
+    for i in range(l):
+        char = string[i]
+        if char in vowels:
+            r += str(i+1)
+        else:
+            r += char
+    return r
+
+
+def add(num1, num2):
+    s1, s2 = str(num1), str(num2)
+    max_len = max(len(s1), len(s2))
+
+    s1_padded = s1.zfill(max_len) if len(s1) < len(s2) else s1
+    s2_padded = s2.zfill(max_len) if len(s2) < len(s1) else s2
+
+    result = ""
+    for i in range(max_len):
+        # Sum the digits without carrying over
+        sum_digit = int(s1_padded[i]) + int(s2_padded[i])
+        result += str(sum_digit)  # Convert the sum back to a string
+
+    return result
+
+add(16,18)
+
+def sum_of_integers_in_string(s):
+    len_str = len(s)
+    digits = []
+    for i in range(len_str):
+        char = s[i]
+        current_num = ''
+        if char.isdigit() and s[i+1] != str(s[i+1]):
+            current_num += char
+        else:
+            current_num += char:
