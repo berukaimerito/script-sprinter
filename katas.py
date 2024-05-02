@@ -1,3 +1,4 @@
+import itertools
 import sys
 
 
@@ -499,12 +500,22 @@ def add(num1, num2):
 add(16,18)
 
 def sum_of_integers_in_string(s):
-    len_str = len(s)
-    digits = []
-    for i in range(len_str):
-        char = s[i]
-        current_num = ''
-        if char.isdigit() and s[i+1] != str(s[i+1]):
-            current_num += char
-        else:
-            current_num += char:
+    pass
+
+import itertools
+
+def create_dict(*args):
+    return itertools.zip_longest(*map(reversed, args))
+
+create_dict(['a', 'b', 'c', 'd'], [1, 2, 3])
+
+some_string_list = ["fsd", "dfsiof", "sjndfjß"]
+
+def spacey(array):
+    res = []
+    for idx in range(1, len(array)+1):
+        zip_member = "".join(i for i in array[:idx])
+        res.append(zip_member)
+    return res
+
+spacey(some_string_list)
